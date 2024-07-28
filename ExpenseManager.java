@@ -55,7 +55,7 @@ public class ExpenseManager {
             if (!salaryText.isEmpty()) {
                 try {
                     monthlySalary = Double.parseDouble(salaryText);
-                    totalExpenses = 0.0; // Reset total expenses when new salary is entered
+                    totalExpenses = 0.0; 
                     loadExpensesFromDB();
                     updateRemainingLabel();
                     salaryField.setText("");
@@ -205,7 +205,7 @@ public class ExpenseManager {
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT date, name, amount FROM expenses")) {
-            totalExpenses = 0.0; // Reset total expenses
+            totalExpenses = 0.0;
             expenseListModel.clear();
             while (rs.next()) {
                 String date = rs.getString("date");
